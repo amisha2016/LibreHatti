@@ -1,0 +1,27 @@
+{% extends "admin/base_site.html" %}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" value="Submit" />
+</form>
+</body>
+</html>
+
+
+<!--{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="/dispatch_register/{{ question.id }}/">{{ question.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+-->
