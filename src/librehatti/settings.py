@@ -116,6 +116,7 @@ INSTALLED_APPS = (
     'librehatti.reports',
     'librehatti.voucher',
     'librehatti.programmeletter',
+    'librehatti.dispatch_register',
 )
 
 SUIT_CONFIG = {

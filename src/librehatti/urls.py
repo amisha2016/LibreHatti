@@ -2,15 +2,18 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-
+from django.shortcuts import redirect
 from reports.register_generator import GenerateRegister
 from reports.search import SearchResult
 from ajax_select import urls as ajax_select_urls
+from django.views.generic import TemplateView
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'librehatti.catalog.views.index', name='home'),
+#    url(r'^post/(?P<pk>\d+)/$', 'librehatti.dispatch_register.views.post_detail', name='post_detail'),
+    url(r'^dispatch_index/$', 'librehatti.dispatch_register.views.dispatch_view', name='dispatch_index'),
     url(r'^catalog/', include('librehatti.catalog.urls')),
     url(r'^useraccounts/', include('useraccounts.urls')),
     url(r'^print/', include('librehatti.prints.urls')),
