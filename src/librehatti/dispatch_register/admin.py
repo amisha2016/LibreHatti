@@ -3,9 +3,9 @@ from .models import entry
 from .forms import dispatch_Form
 admin.autodiscover()
 
-# Register your models herei.
-class hello(admin.ModelAdmin):
-    list_display=('id','pub_date','name','agency','address','place','subject','remarks')
-
-admin.site.register(entry,hello)
+# Register your models here.
+class DispatchEntry(admin.ModelAdmin):
+    list_display=('dispatch_no','date','name_of_Dept_or_Client','address','place','agency','subject','remarks')
+ #   search_fields = ['name']
+admin.site.register(entry, DispatchEntry)
 
