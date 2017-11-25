@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import django.utils.timezone
 
 
 class Migration(migrations.Migration):
@@ -11,14 +12,14 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='dispatch_register',
+            name='entry',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('pub_date', models.DateTimeField(verbose_name=b'date published')),
-                ('name', models.CharField(max_length=200)),
-                ('company', models.CharField(max_length=200)),
+                ('dispatch_no', models.AutoField(serialize=False, primary_key=True)),
+                ('date', models.DateTimeField(default=django.utils.timezone.now)),
+                ('name_of_Dept_or_Client', models.CharField(max_length=200)),
                 ('address', models.CharField(max_length=200)),
                 ('place', models.CharField(max_length=200)),
+                ('agency', models.CharField(max_length=200, blank=True)),
                 ('subject', models.CharField(max_length=200)),
                 ('remarks', models.CharField(max_length=200)),
             ],

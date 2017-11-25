@@ -15,7 +15,7 @@ def dispatch_view(request):
         form = dispatch_Form(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.pub_date = timezone.now()
+            post.date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:

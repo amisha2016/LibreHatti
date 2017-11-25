@@ -26,12 +26,14 @@ class entry(models.Model):
     """
     Handling dispatch register
     """
-    pub_date = models.DateTimeField(default=timezone.now)
-    name = models.CharField(max_length=200)
-    agency = models.CharField(max_length=200, blank=True)
+    dispatch_no = models.AutoField(primary_key=True)
+    date = models.DateTimeField(default=timezone.now)
+    name_of_Dept_or_Client = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     place = models.CharField(max_length=200)
+    agency = models.CharField(max_length=200, blank=True)
     subject = models.CharField(max_length=200)
     remarks = models.CharField(max_length=200)
 
-
+    def __str__(self):
+        return self.name_of_Dept_or_Client
