@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import entry
 from .models import Choices
 from .forms import dispatch_Form
-#from .forms import subject_choices
+from .forms import ChoicesForm
 admin.autodiscover()
 
 # Register your models here.
@@ -17,4 +17,15 @@ admin.site.register(entry, DispatchEntry)
 
 class subject_choicesAdmin(admin.ModelAdmin):
     list_display=('description',)
-admin.site.register(Choices, subject_choicesAdmin)
+#admin.site.register(Choices, subject_choicesAdmin)
+
+
+class StaffInl(admin.StackedInline):
+    """
+    This class is used to add, edit or delete staff.
+    """
+    form = ChoicesForm
+    model = Choices
+    fields = ['description', ]
+    extra = 3
+admin.site.register(Choices, StaffInl)
