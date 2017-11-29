@@ -12,6 +12,16 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Choices',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('description', models.CharField(max_length=300)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='entry',
             fields=[
                 ('dispatch_no', models.AutoField(serialize=False, primary_key=True)),
@@ -22,6 +32,7 @@ class Migration(migrations.Migration):
                 ('agency', models.CharField(max_length=200, blank=True)),
                 ('subject', models.CharField(max_length=200)),
                 ('remarks', models.CharField(max_length=200)),
+                ('choices', models.ForeignKey(to='dispatch_register.Choices')),
             ],
             options={
             },

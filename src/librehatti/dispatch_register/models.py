@@ -20,6 +20,11 @@ from librehatti.voucher.models import FinancialSession
 
 from django.core.urlresolvers import reverse
 
+class Choices(models.Model):
+    description = models.CharField(max_length=300)
+    def __unicode__(self):
+        return self.description
+
 
 
 class entry(models.Model):
@@ -34,6 +39,7 @@ class entry(models.Model):
     agency = models.CharField(max_length=200, blank=True)
     subject = models.CharField(max_length=200)
     remarks = models.CharField(max_length=200)
+    choices = models.ForeignKey(Choices)
 
     def __str__(self):
         return self.name_of_Dept_or_Client

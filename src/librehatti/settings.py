@@ -19,15 +19,17 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_name',
-        'USER': 'db_user',
-        'PASSWORD': 'db_password',
+        'NAME': 'lh_old',
+        'USER': 'root',
+        'PASSWORD': 'r',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
 
 ALLOWED_HOSTS = []
+
+LOCALE_PATHS = (BASE_DIR + '/locale',)
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
