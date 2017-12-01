@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import entry
-from .models import add_subchoice
-from .forms import dispatch_Form, subjectForm
+from .models import sub_choices, remark_choices
+from .forms import dispatch_Form, subjectForm, remarksForm
 #from .forms import ChoicesForm
 admin.autodiscover()
 
@@ -10,13 +10,18 @@ admin.autodiscover()
 
 class subject_choicesAdmin(admin.ModelAdmin):
     form = subjectForm
-    model=add_subchoice
+    model=sub_choices
 #    extra = 1
     #fields = ['subject_text',]
 #    list_display=('description',)
 
+class remarks_choicesAdmin(admin.ModelAdmin):
+    form = remarksForm
+    model=remark_choices
+
+
 class DispatchEntry(admin.ModelAdmin):
-    list_display=('dispatch_no','date','name_of_Dept_or_Client','address','place','agency','subject','remarks')
+#    list_display=('dispatch_no','date','name_of_Dept_or_Client','address','place','agency','subject','remarks')
     list_display=('dispatch_no','date','name_of_Dept_or_Client','address','place','agency')
     search_fields = ['=name_of_Dept_or_Client','=address']
     list_filter = ['dispatch_no', 'name_of_Dept_or_Client']
@@ -25,9 +30,9 @@ class DispatchEntry(admin.ModelAdmin):
 #    inlines = [subject_choicesAdmin]
 
 
-#admin.site.register(Choices, subject_choicesAdmin)
+admin.site.register(sub_choices, subject_choicesAdmin)
 admin.site.register(entry, DispatchEntry)
-admin.site.register(add_subchoice, subject_choicesAdmin)
+admin.site.register(remark_choices, remarks_choicesAdmin)
 
 
 class StaffInl(admin.StackedInline):

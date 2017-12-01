@@ -20,14 +20,36 @@ from librehatti.voucher.models import FinancialSession
 
 from django.core.urlresolvers import reverse
 
-class add_subchoice(models.Model):
- #   choice=models.ForeignKey(entry)
+class list_sub_choices(models.Model):
     call_name=models.CharField(max_length=200)
-    readable_name=models.CharField(max_length=200)
+    def __str__(self):
+        return self.call_name
+
+
+class list_remarks_choices(models.Model):
+    call_name=models.CharField(max_length=200)
+    def __str__(self):
+        return self.call_name
+
+class remark_choices(models.Model):
+#    readable_name=models.CharField(max_length=200)
+    readable_name = models.CharField(max_length=200,choices=[(str(o.id), str(o)) for o in list_remarks_choices.objects.all()])
+   
+    def __str__(self):
+        return self.readable_name
+
+
+
+class sub_choices(models.Model):
+ #   choice=models.ForeignKey(entry)
+#    call_name=models.CharField(max_length=200)
+#    readable_name=models.CharField(max_length=200)
+    readable_name = models.CharField(max_length=200,choices=[(str(o.id), str(o)) for o in list_sub_choices.objects.all()])
+
 #    sub_choices=[]
 #    sub_choices.append((self.objects.values_list('call_name'),(self.objects.values_list('readable_name')))
     def __str__(self):
-        return self.call_name
+        return self.readable_name
 
 
 
@@ -42,8 +64,9 @@ class entry(models.Model):
     place = models.CharField(max_length=200)
     agency = models.CharField(max_length=200, blank=True)
 #    subject = models.CharField(max_length=200, choices=add_subchoice.sub_choices, default='qwer')
-    subject = models.CharField(max_length=200,choices=[(str(o.id), str(o)) for o in add_subchoice.objects.all()], default='doit')
-    another = models.ManyToManyField(add_subchoice)
+#    subject = models.CharField(max_length=200,choices=[(str(o.id), str(o)) for o in add_subchoice.objects.all()], default='doit')
+    subject = models.ManyToManyField(sub_choices)
+    remarks = models.ManyToManyField(remark_choices)
 
 #    remarks = models.CharField(max_length=200)
 
