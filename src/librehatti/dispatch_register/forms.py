@@ -26,6 +26,8 @@ class dispatch_Form(forms.ModelForm):
         self.fields['agency'].required = False
        # self.fields['subject']=forms.ModelMultipleChoiceField(queryset=add_subchoice.objects.all(), widget=forms.CheckboxSelectMultiple)
         self.fields['subject']=forms.MultipleChoiceField(choices=[(str(o.id), str(o)) for o in add_subchoice.objects.all()], widget=forms.CheckboxSelectMultiple)
+        self.fields['another']=forms.ModelMultipleChoiceField(queryset=add_subchoice.objects.all(), widget=forms.CheckboxSelectMultiple)
+
 #        self.fields['subject']=forms.MultipleChoiceField(choices=sub_choices, widget=forms.CheckboxSelectMultiple)
 
 

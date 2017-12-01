@@ -43,7 +43,7 @@ class entry(models.Model):
     agency = models.CharField(max_length=200, blank=True)
 #    subject = models.CharField(max_length=200, choices=add_subchoice.sub_choices, default='qwer')
     subject = models.CharField(max_length=200,choices=[(str(o.id), str(o)) for o in add_subchoice.objects.all()], default='doit')
-#    subject = models.CharField(max_length=200,choices=[(o.id, str(o)) for o in add_subchoice.objects.all()], default='doit')
+    another = models.ManyToManyField(add_subchoice)
 
 #    remarks = models.CharField(max_length=200)
 
