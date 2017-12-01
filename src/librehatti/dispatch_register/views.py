@@ -17,6 +17,7 @@ def dispatch_view(request):
             post = form.save(commit=False)
             post.date = timezone.now()
             post.save()
+            form.save_m2m()
             return redirect('post_detail', pk=post.pk)
     else:
         form = dispatch_Form()
