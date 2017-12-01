@@ -15,7 +15,7 @@ class dispatch_Form(forms.ModelForm):
 
     class Meta:
         model = entry
-        fields = ('dispatch_no','date','name_of_Dept_or_Client','address','place','agency','subject','remarks')
+        fields = ('dispatch_no','date','name_of_Dept_or_Client','address','place','agency','subject','remarks','another')
 #        fields = ('dispatch_no','date','name_of_Dept_or_Client','address','place','agency')
 #        subject = forms.ChoiceField(choices=[(i.id, str(i)) for i in add_subchoice.objects.all()], widget=forms.CheckboxSelectMultiple)
 #    choices = forms.ModelChoiceField(queryset=Choices.objects.all())
@@ -25,7 +25,10 @@ class dispatch_Form(forms.ModelForm):
         self.fields['agency'].required = False
        # self.fields['subject']=forms.ModelMultipleChoiceField(queryset=add_subchoice.objects.all(), widget=forms.CheckboxSelectMultiple)
 #        self.fields['subject']=forms.MultipleChoiceField(choices=[(str(o.id), str(o)) for o in add_subchoice.objects.all()], widget=forms.CheckboxSelectMultiple)
+        self.fields['another']=forms.ModelMultipleChoiceField(queryset=sub_choices.objects.all(), widget=forms.CheckboxSelectMultiple)
         self.fields['subject']=forms.ModelMultipleChoiceField(queryset=sub_choices.objects.all(), widget=forms.CheckboxSelectMultiple)
+
+#        self.fields['subject']=forms.ModelMultipleChoiceField(queryset=sub_choices.objects.all(), widget=forms.CheckboxSelectMultiple)
         self.fields['remarks']=forms.ModelMultipleChoiceField(queryset=remark_choices.objects.all(), widget=forms.CheckboxSelectMultiple)
 
 #        self.fields['subject']=forms.MultipleChoiceField(choices=sub_choices, widget=forms.CheckboxSelectMultiple)

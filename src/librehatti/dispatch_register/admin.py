@@ -22,7 +22,7 @@ class remarks_choicesAdmin(admin.ModelAdmin):
 
 class DispatchEntry(admin.ModelAdmin):
 #    list_display=('dispatch_no','date','name_of_Dept_or_Client','address','place','agency','subject','remarks')
-    list_display=('dispatch_no','date','name_of_Dept_or_Client','address','place','agency')
+    list_display=('dispatch_no','date','name_of_Dept_or_Client','address','place','agency','another')
     search_fields = ['=name_of_Dept_or_Client','=address']
     list_filter = ['dispatch_no', 'name_of_Dept_or_Client']
 #    list_select_related = ('name_of_Dept_or_Client','address')
