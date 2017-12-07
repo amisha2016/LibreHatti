@@ -19,15 +19,15 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lh',#'db_name',
-        'USER': 'root',#'db_user',
-        'PASSWORD':'r',#'db_password',
+        'NAME': 'amisha_lh',#'db_name',
+        'USER': 'amisha',#'db_user',
+        'PASSWORD':'AMishab@',#'db_password',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -58,7 +58,7 @@ STATIC_ROOT = ''
 STATIC_URL = '/librehatti/static/'
 
 STATICFILES_DIRS = (
-    '../static',
+    '../../static',
 )
 
 STATICFILES_FINDERS = (
