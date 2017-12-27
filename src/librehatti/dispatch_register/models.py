@@ -59,9 +59,9 @@ class entry(models.Model):
     """
     dispatch_no = models.AutoField(primary_key=True)
     date = models.DateTimeField(default=timezone.now)
-    name_of_Dept_or_Client = models.CharField(max_length=200)
-    address = models.CharField(max_length=200)
-    place = models.CharField(max_length=200)
+    name_of_Dept_or_Client = models.ForeignKey(User)
+#    address = models.CharField(max_length=200)
+#    place = models.CharField(max_length=200)
     agency = models.CharField(max_length=200, blank=True)
 #    subject = models.CharField(max_length=200, choices=add_subchoice.sub_choices, default='qwer')
 #    subject = models.CharField(max_length=200,choices=[(str(o.id), str(o)) for o in add_subchoice.objects.all()], default='doit')

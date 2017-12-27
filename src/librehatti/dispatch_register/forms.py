@@ -13,9 +13,10 @@ from django.forms.widgets import CheckboxSelectMultiple
 
 class dispatch_Form(forms.ModelForm):
 
+    name_of_Dept_or_Client=make_ajax_field(entry, 'name_of_Dept_or_Client', 'buyer')
     class Meta:
         model = entry
-        fields = ('dispatch_no','date','name_of_Dept_or_Client','address','place','agency','subject','remarks')
+#        fields = ('dispatch_no','date','address','place','agency','subject','remarks')
 #        fields = ('dispatch_no','date','name_of_Dept_or_Client','address','place','agency')
 #        subject = forms.ChoiceField(choices=[(i.id, str(i)) for i in add_subchoice.objects.all()], widget=forms.CheckboxSelectMultiple)
 #    choices = forms.ModelChoiceField(queryset=Choices.objects.all())
