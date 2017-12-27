@@ -5,13 +5,9 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import redirect
 
-#print ("hello")
-
-import ipdb
-#ipdb.set_trace()
-
 def dispatch_view(request):
     if request.method == "POST":
+
         form = dispatch_Form(request.POST)
         if form.is_valid():
             post = form.save(commit=False)

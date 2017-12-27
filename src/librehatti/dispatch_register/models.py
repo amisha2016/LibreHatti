@@ -66,7 +66,7 @@ class entry(models.Model):
 #    subject = models.CharField(max_length=200, choices=add_subchoice.sub_choices, default='qwer')
 #    subject = models.CharField(max_length=200,choices=[(str(o.id), str(o)) for o in add_subchoice.objects.all()], default='doit')
     
-    another = models.CharField(max_length=200, choices=[(str(o.id), str(o)) for o in sub_choices.objects.all()], default='doit')
+#    another = models.CharField(max_length=200, choices=[(str(o.id), str(o)) for o in sub_choices.objects.all()], default='doit')
     subject = models.ManyToManyField(sub_choices)
     remarks = models.ManyToManyField(remark_choices)
 

@@ -15,8 +15,9 @@
 
 
 {% block content %}
+<!--    <form action='{% url 'librehatti.dispatch_register.views.dispatch_view' %}' method='POST'> {% csrf_token %}-->
 
-    <form action='#' method='post'> {% csrf_token %}
+    <form action='{% url 'dispatch_index' %}' method='POSiT'> {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value ='Submit' />
 
